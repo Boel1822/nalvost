@@ -1,0 +1,158 @@
+/* STREAMING_CHUNK:Configuring custom properties and root color variables... */ :root { --primary-sky: #0284c7; --primary-sky-light: #38bdf8; --primary-sky-glow: rgba(14, 165, 233, 0.25); --ice-blue-bg: #f0f9ff; --silver-metallic-start: #64748b; --silver-metallic-mid: #cbd5e1; --silver-metallic-end: #334155; --glass-background: rgba(255, 255, 255, 0.85); --glass-border: rgba(255, 255, 255, 0.9); --glass-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.05), 0 4px 12px -2px rgba(15, 23, 42, 0.03); --glass-hover-shadow: 0 20px 40px -10px rgba(14, 165, 233, 0.18); --modal-overlay: rgba(15, 23, 42, 0.45); }
+
+/* STREAMING_CHUNK:Styling custom scrollbars and base canvas container... */
+::-webkit-scrollbar {
+width: 8px;
+height: 8px;
+}
+
+::-webkit-scrollbar-track {
+background: #e2e8f0;
+border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+background: var(--primary-sky-light);
+border-radius: 4px;
+transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: var(--primary-sky);
+}
+
+/* Canvas Salju Interaktif Fullscreen */
+#snow-canvas {
+position: fixed;
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+pointer-events: none;
+z-index: 40;
+}
+
+/* STREAMING_CHUNK:Defining glassmorphism and card visual components... */
+.glass-card {
+background: var(--glass-background);
+backdrop-filter: blur(16px);
+-webkit-backdrop-filter: blur(16px);
+border: 1px solid var(--glass-border);
+box-shadow: var(--glass-shadow);
+transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card-hover {
+transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card-hover:hover {
+transform: translateY(-6px);
+background: rgba(255, 255, 255, 0.98);
+border-color: rgba(56, 189, 248, 0.5);
+box-shadow: var(--glass-hover-shadow);
+}
+
+/* STREAMING_CHUNK:Creating keyframe animations for shimmer and float effects... */
+@keyframes shimmerMetallic {
+0% {
+background-position: -200% 0;
+}
+100% {
+background-position: 200% 0;
+}
+}
+
+@keyframes floatSoft {
+0%, 100% {
+transform: translateY(0px);
+}
+50% {
+transform: translateY(-5px);
+}
+}
+
+@keyframes pulseGlow {
+0%, 100% {
+box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+}
+50% {
+box-shadow: 0 0 25px rgba(56, 189, 248, 0.6);
+}
+}
+
+/* STREAMING_CHUNK:Styling metallic brand typography and badges... */
+.text-metallic-gradient {
+background: linear-gradient(135deg, var(--silver-metallic-start) 0%, var(--silver-metallic-mid) 50%, var(--silver-metallic-end) 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.badge-glow {
+animation: pulseGlow 3s infinite ease-in-out;
+}
+
+.float-badge {
+animation: floatSoft 4s infinite ease-in-out;
+}
+
+/* STREAMING_CHUNK:Configuring modal background and entrance transitions... */
+#buy-modal {
+transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#buy-modal .relative {
+animation: modalSlideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalSlideUp {
+from {
+opacity: 0;
+transform: translateY(20px) scale(0.96);
+}
+to {
+opacity: 1;
+transform: translateY(0) scale(1);
+}
+}
+
+/* STREAMING_CHUNK:Optimizing toast notification alerts and button hover logic... */
+#toast-container {
+pointer-events: none;
+}
+
+.toast-enter {
+animation: toastSlideIn 0.3s ease forwards;
+}
+
+@keyframes toastSlideIn {
+from {
+opacity: 0;
+transform: translateY(15px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+.btn-interactive {
+transition: all 0.25s ease-in-out;
+}
+
+.btn-interactive:active {
+transform: scale(0.97);
+}
+
+/* STREAMING_CHUNK:Adding media queries for responsive mobile enhancements... */
+@media (max-width: 640px) {
+.glass-card {
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
+}
+
+.glass-card-hover:hover {
+    transform: translateY(-3px);
+}
+
+
